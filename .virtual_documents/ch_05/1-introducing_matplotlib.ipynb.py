@@ -10,6 +10,28 @@ plt.plot(fb.index, fb.open)
 plt.show()
 
 
+# me
+fb.head()
+
+
+#me
+fb.volume.plot()
+
+
+#me
+plt.plot(fb.index, fb.open)
+
+
+
+
+
+#me
+fb.plot(kind='line', y='close')
+
+
+
+
+
 get_ipython().run_line_magic("matplotlib", " inline")
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -20,7 +42,38 @@ fb = pd.read_csv(
 plt.plot(fb.index, fb.open)
 
 
+#me
+#plt.plot(data='fb', kind='scatter', x='open', y='close' )
+fb.plot( kind='scatter', x='open', y='close' )
+
+
+#me 
+plt.plot(fb.open, fb.close, 'or' )
+
+
+plt.plot('open', 'close', 'xg', data=fb.head(30))
+
+
+
+
+
 plt.plot('high', 'low', 'or', data=fb.head(20))
+
+
+#me
+quakes = pd.read_csv('data/earthquakes.csv')
+quakes.head()
+
+
+#me
+quakes.query('magType=="ml" and parsed_place=="Alaska"').mag.hist(bins=20)
+
+
+#me
+plt.hist(quakes.query('magType=="md" and parsed_place=="Washington"').mag)
+
+
+
 
 
 quakes = pd.read_csv('data/earthquakes.csv')
@@ -37,6 +90,13 @@ for ax, bins in zip(axes, [7, 35]):
 fig = plt.figure()
 
 
+#me
+fig = plt.figure(figsize=(2,5))
+
+
+fig = plt.figure()
+
+
 fig, axes = plt.subplots(1, 2)
 
 
@@ -45,12 +105,20 @@ outside = fig.add_axes([0.1, 0.1, 0.9, 0.9])
 inside = fig.add_axes([0.7, 0.7, 0.25, 0.25])
 
 
+fig = plt.figure(figsize=(3, 3))
+outside = fig.add_axes([0.1, 0.1, 0.9, 0.9])
+inside = fig.add_axes([0.7, 0.7, 0.4, 0.4])
+
+
 fig = plt.figure(figsize=(8, 8))
 gs = fig.add_gridspec(3, 3)
 top_left = fig.add_subplot(gs[0, 0])
 mid_left = fig.add_subplot(gs[1, 0])
 top_right = fig.add_subplot(gs[:2, 1:])
 bottom = fig.add_subplot(gs[2,:])
+
+
+#?fig.add_gridspec
 
 
 fig.savefig('empty.png')
